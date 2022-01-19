@@ -1,0 +1,24 @@
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\bin\Debug\AssimpLib\Assimp32.dll
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\bin\Debug\AssimpLib\Assimp64.dll
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\bin\Debug\AssimpLib\AssimpNet.dll
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\bin\Debug\3D Models\Penguin\pengiun.dae
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\bin\Debug\3D Models\Touareg\Touareg.3DS
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\bin\Debug\AssimpSample.exe.config
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\bin\Debug\AssimpSample.exe
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\bin\Debug\AssimpSample.pdb
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\bin\Debug\AssimpNet.dll
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\bin\Debug\SharpGL.dll
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\bin\Debug\SharpGL.SceneGraph.dll
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\bin\Debug\SharpGL.WPF.dll
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\obj\x86\Debug\PF1S14.2.csprojAssemblyReference.cache
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\obj\x86\Debug\MainWindow.baml
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\obj\x86\Debug\MainWindow.g.cs
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\obj\x86\Debug\App.g.cs
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\obj\x86\Debug\AssimpSample_Content.g.cs
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\obj\x86\Debug\AssimpSample_MarkupCompile.cache
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\obj\x86\Debug\AssimpSample.g.resources
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\obj\x86\Debug\AssimpSample.Properties.Resources.resources
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\obj\x86\Debug\PF1S14.2.csproj.GenerateResource.cache
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\obj\x86\Debug\PF1S14.2.csproj.CopyComplete
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\obj\x86\Debug\AssimpSample.exe
+D:\Cetvrta\RG vezbe\Vezbe4\AssimpSample\AssimpSample\obj\x86\Debug\AssimpSample.pdb
