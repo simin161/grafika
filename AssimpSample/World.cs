@@ -54,7 +54,7 @@ namespace AssimpSample
         /// <summary>
         ///	 Udaljenost scene od kamere.
         /// </summary>
-        private float m_sceneDistance = 80f;
+        private float m_sceneDistance = 10f;
 
         /// <summary>
         ///	 Sirina OpenGL kontrole u pikselima.
@@ -210,8 +210,8 @@ namespace AssimpSample
                 image.UnlockBits(imageData);
                 image.Dispose();
             }
-
-            //gl.ClearColor(0f, 0f, 0f, 1.0f);
+            //gl.ShadeModel(OpenGL.GL_FLAT);
+            gl.ClearColor(0f, 0f, 0f, 1.0f);
             SetupLighting(gl);
             m_scene.LoadScene();
             m_scene.Initialize();
@@ -220,43 +220,42 @@ namespace AssimpSample
         private void SetupLighting(OpenGL gl)
         {
             gl.Light(OpenGL.GL_LIGHT0, OpenGL.GL_SPOT_CUTOFF, 180.0f);
-            gl.Light(OpenGL.GL_LIGHT0, OpenGL.GL_SPOT_EXPONENT, 5.0f);
-            float[] global_ambient = new float[] { 0.2f, 0.2f, 0.2f, 1.0f };
-            gl.LightModel(OpenGL.GL_LIGHT_MODEL_AMBIENT, global_ambient);
+           // gl.Light(OpenGL.GL_LIGHT0, OpenGL.GL_SPOT_EXPONENT, 5.0f);
+           // float[] global_ambient = new float[] { 0.2f, 0.2f, 0.2f, 1.0f };
+           // gl.LightModel(OpenGL.GL_LIGHT_MODEL_AMBIENT, global_ambient);
 
-            float[] light0pos = new float[] { 60.0f, 30,0f, -30,0f, 1.0f };
-            float[] light0ambient = new float[] { 0.4f, 0.4f, 0.4f, 1.0f };
-            float[] light0diffuse = new float[] { 0.3f, 0.3f, 0.3f, 1.0f };
-            float[] light0specular = new float[] { 0.8f, 0.8f, 0.8f, 1.0f };
+            float[] light0pos = new float[] { 60.0f, 30.0f, -30.0f, 1f };
+            float[] light0ambient = new float[] { 0.4f, 0.4f, 0.4f, 1f };
+            float[] light0diffuse = new float[] { 1f, 1f, 0.2f, 1f };
+            //float[] light0specular = new float[] { 0.8f, 0.8f, 0.8f, 1.0f };
 
             gl.Light(OpenGL.GL_LIGHT0, OpenGL.GL_POSITION, light0pos);
             gl.Light(OpenGL.GL_LIGHT0, OpenGL.GL_AMBIENT, light0ambient);
             gl.Light(OpenGL.GL_LIGHT0, OpenGL.GL_DIFFUSE, light0diffuse);
-            gl.Light(OpenGL.GL_LIGHT0, OpenGL.GL_SPECULAR, light0specular);
+            //gl.Light(OpenGL.GL_LIGHT0, OpenGL.GL_SPECULAR, light0specular);
             gl.Enable(OpenGL.GL_LIGHTING);
             gl.Enable(OpenGL.GL_LIGHT0);
 
-            gl.Light(OpenGL.GL_LIGHT1, OpenGL.GL_SPOT_CUTOFF, 35.0f);
-            gl.Light(OpenGL.GL_LIGHT1, OpenGL.GL_SPOT_EXPONENT, 5.0f);
-            float[] global_ambient1 = new float[] { 0.2f, 0.2f, 0.2f, 1.0f };
-            gl.LightModel(OpenGL.GL_LIGHT_MODEL_AMBIENT, global_ambient1);
+            gl.Light(OpenGL.GL_LIGHT1, OpenGL.GL_SPOT_CUTOFF, 40.0f);
+           // gl.Light(OpenGL.GL_LIGHT1, OpenGL.GL_SPOT_EXPONENT, 50.0f);
+            //float[] global_ambient1 = new float[] { 0.2f, 0.2f, 0.2f, 1.0f };
+            //gl.LightModel(OpenGL.GL_LIGHT_MODEL_AMBIENT, global_ambient1);
 
-            float[] light1pos = new float[] { 20.0f, 30.0f, -30.0f, 0f };
+            float[] light1pos = new float[] { 20.0f, 30.0f, -20.0f, 1.0f };
             float[] light1ambient = new float[] { 0.4f, 0.4f, 0.4f, 1.0f };
-            float[] light1diffuse = new float[] { 0.3f, 0.3f, 0.3f, 1.0f };
-            float[] light1specular = new float[] { 0.8f, 0.8f, 0.8f, 1.0f };
-            float[] direction = new float[] { 20.0f, 0.0f, -30.0f };
+            float[] light1diffuse = new float[] { 1f, 0f, 0f, 1.0f };
+          //  float[] light1specular = new float[] { 0.8f, 0.8f, 0.8f, 1.0f };
+            float[] direction = new float[] { 20.0f, -30.0f, -20.0f };
             gl.Light(OpenGL.GL_LIGHT1, OpenGL.GL_POSITION, light1pos);
             gl.Light(OpenGL.GL_LIGHT1, OpenGL.GL_AMBIENT, light1ambient);
             gl.Light(OpenGL.GL_LIGHT1, OpenGL.GL_DIFFUSE, light1diffuse);
-            gl.Light(OpenGL.GL_LIGHT1, OpenGL.GL_SPECULAR, light1specular);
+          //  gl.Light(OpenGL.GL_LIGHT1, OpenGL.GL_SPECULAR, light1specular);
             gl.Light(OpenGL.GL_LIGHT1, OpenGL.GL_SPOT_DIRECTION, direction);
-            gl.Enable(OpenGL.GL_LIGHTING);
+            //gl.Enable(OpenGL.GL_LIGHTING);
             gl.Enable(OpenGL.GL_LIGHT1);
 
             // Ukljuci automatsku normalizaciju nad normalama
             gl.Enable(OpenGL.GL_NORMALIZE);
-
         }
 
         /// <summary>
@@ -267,12 +266,12 @@ namespace AssimpSample
             gl.MatrixMode(OpenGL.GL_PROJECTION);      // selektuj Projection Matrix
             gl.LoadIdentity();
 
-            gl.Perspective(50.0, (double)m_width / m_height, 0.5f, 500f);
+            gl.Perspective(50.0, (double)m_width / m_height, 0.5f, 50000f);
             gl.Viewport(0, 0, m_width, m_height);
 
             gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
 
-            //lookAtCam.Project(gl);
+            lookAtCam.Project(gl);
             gl.MatrixMode(OpenGL.GL_MODELVIEW);
             gl.PushMatrix();
 
@@ -280,15 +279,16 @@ namespace AssimpSample
             gl.Rotate(m_xRotation, 1.0f, 0.0f, 0.0f);
             gl.Rotate(m_yRotation, 0.0f, 1.0f, 0.0f);
             gl.PushMatrix();
-            // gl.Scale(5.5, 6.5, 5.5);
-            gl.Color(0f, 0f, 0f);
+            gl.Scale(10, 10, 10);
+            gl.Translate(0f, -0.5f, 0f);
+            //gl.Color(1f, 1f, 1f);
                 m_scene.Draw();
             gl.PopMatrix();
 
             DrawIce(gl);
             DrawWater(gl);
             DrawIgloo(gl);
-           // DrawLight(gl);
+            //DrawLight(gl);
             DrawText(gl);
             gl.PopMatrix();
 
@@ -315,29 +315,42 @@ namespace AssimpSample
             gl.MatrixMode(MatrixMode.Texture);
 
             gl.PushMatrix();
-            gl.Color(0f, 0f, 0f);
+            //gl.Color(0f, 0f, 0f);
+            gl.Enable(OpenGL.GL_TEXTURE_2D);
+            gl.TexEnv(OpenGL.GL_TEXTURE_ENV, OpenGL.GL_TEXTURE_ENV_MODE, OpenGL.GL_ADD);
+
             gl.BindTexture(OpenGL.GL_TEXTURE_2D, m_textures[(int)TextureObjects.Ice]);
             gl.Begin(OpenGL.GL_QUADS);
             gl.TexCoord(0.0f, 0.0f);
+            gl.Normal(0f, 1f, 0f);
+                    gl.TexCoord(0.0f, 0.0f);
                     gl.Vertex(40, -5, -50);
-                   gl.TexCoord(1.0f, 0.0f);
+                    gl.Normal(0f, 1f, 0f);
+                    gl.TexCoord(1.0f, 0.0f);
                     gl.Vertex(-40, -5, -50);
+                    gl.Normal(0f, 1f, 0f);
                     gl.TexCoord(1.0f, 1.0f);
                     gl.Vertex(-40, -5, 20);
+                    gl.Normal(0f, 1f, 0f);
                     gl.TexCoord(0.0f, 1.0f);
                     gl.Vertex(40, -5, 20);
-
                     gl.Color(0f, 0f, 0f);
+                    gl.Normal(0f, 1f, 0f);
                     gl.TexCoord(0.0f, 0.0f);
                     gl.Vertex(40, -5, 20);
+                    gl.Normal(0f, 1f, 0f);
                     gl.TexCoord(1.0f, 0.0f);
                     gl.Vertex(-40, -5, 20);
+                    gl.Normal(0f, 1f, 0f);
                     gl.TexCoord(1.0f, 1.0f);
                     gl.Vertex(-40, -6.5, 20);
+                    gl.Normal(0f, 1f, 0f);
                     gl.TexCoord(0.0f, 1.0f);
                     gl.Vertex(40, -6.5, 20);
                 gl.End();
             gl.PopMatrix();
+            gl.Disable(OpenGL.GL_TEXTURE_2D);
+
         }
 
         public void DrawWater(OpenGL gl)
@@ -345,37 +358,47 @@ namespace AssimpSample
             gl.MatrixMode(MatrixMode.Texture);
 
             gl.PushMatrix();
-                gl.Color(0f,0f, 0f);
-                gl.BindTexture(OpenGL.GL_TEXTURE_2D, m_textures[(int)TextureObjects.Water]);
+             //   gl.Color(0f,0f, 0f);
+            gl.Enable(OpenGL.GL_TEXTURE_2D);
+            gl.TexEnv(OpenGL.GL_TEXTURE_ENV, OpenGL.GL_TEXTURE_ENV_MODE, OpenGL.GL_ADD);
+
+            gl.BindTexture(OpenGL.GL_TEXTURE_2D, m_textures[(int)TextureObjects.Water]);
                 gl.Begin(OpenGL.GL_QUADS);
+                    gl.Normal(0f, 1f, 0f);
                     gl.TexCoord(0.0f, 0.0f);
                     gl.Vertex(40, -6.5, 20);
+                    gl.Normal(0f, 1f, 0f);
                     gl.TexCoord(1.0f, 0.0f);
                     gl.Vertex(-40, -6.5, 20);
+                    gl.Normal(0f, 1f, 0f);
                     gl.TexCoord(1.0f, 1.0f);
                     gl.Vertex(-40, -6.5, 50);
+                    gl.Normal(0f, 1f, 0f);
                     gl.TexCoord(0.0f, 1.0f);
                     gl.Vertex(40, -6.5, 50);
                 gl.End();
             gl.PopMatrix();
+            gl.Disable(OpenGL.GL_TEXTURE_2D);
+
         }
 
         public void DrawIgloo(OpenGL gl)
         {
             gl.MatrixMode(OpenGL.GL_MODELVIEW);
-            //gl.TexEnv(OpenGL.GL_TEXTURE_ENV, OpenGL.GL_TEXTURE_ENV_MODE, OpenGL.GL_MODULATE);
-
             gl.PushMatrix();
-
             gl.Color(1f,1f,1f);
-            gl.Translate(20f, -2f, -30f);
-            //gl.BindTexture(OpenGL.GL_TEXTURE_2D, m_textures[(int)TextureObjects.Ice]);
+            gl.Translate(20f, -2f, -20f);
+            gl.Enable(OpenGL.GL_TEXTURE_2D);
+            gl.Enable(OpenGL.GL_TEXTURE_GEN_S);
+            gl.Enable(OpenGL.GL_TEXTURE_GEN_T);
+            gl.TexEnv(OpenGL.GL_TEXTURE_ENV, OpenGL.GL_TEXTURE_ENV_MODE, OpenGL.GL_MODULATE);
+            gl.BindTexture(OpenGL.GL_TEXTURE_2D, m_textures[(int)TextureObjects.Snow]);
             //gl.TexGen(OpenGL.GL_S, OpenGL.GL_OBJECT_PLANE, OpenGL.GL_SPHERE_MAP);
             gl.Scale(12f, 12f, 12f); 
                 Sphere sp = new Sphere();
                 sp.CreateInContext(gl);
                 sp.Render(gl, SharpGL.SceneGraph.Core.RenderMode.Render);
-                gl.Color(0.90f, 0.90f, 0.90f);
+                gl.Color(1f, 1f, 1f);
                 gl.Translate(-1.3f, -0.2f, 0f);
                 gl.Scale(2f, 0.6f, 0.5f);
                 gl.Rotate(0f, 90f, 0f);
@@ -383,8 +406,10 @@ namespace AssimpSample
                 cy.TopRadius = 1;
                 cy.CreateInContext(gl);
                 cy.Render(gl, SharpGL.SceneGraph.Core.RenderMode.Render);
-
             gl.PopMatrix();
+            gl.Disable(OpenGL.GL_TEXTURE_2D);
+            gl.Disable(OpenGL.GL_TEXTURE_GEN_S);
+            gl.Disable(OpenGL.GL_TEXTURE_GEN_T);
         }
 
 
@@ -412,7 +437,7 @@ namespace AssimpSample
             gl.Viewport(0, 0, m_width, m_height);
             gl.MatrixMode(OpenGL.GL_PROJECTION);      // selektuj Projection Matrix
             gl.LoadIdentity();
-            gl.Perspective(50.0, (double)m_width / m_height, 0.5f, 500f);
+            gl.Perspective(50.0, (double)m_width / m_height, 0.5f, 50000f);
             gl.MatrixMode(OpenGL.GL_MODELVIEW);
             gl.LoadIdentity();                // resetuj ModelView Matrix
         }

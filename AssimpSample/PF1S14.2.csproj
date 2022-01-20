@@ -108,16 +108,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="3D Models\Duck\duck.dae" />
-    <None Include="3D Models\Duck\Thumbs.db" />
-    <None Include="3D Models\Penguin\pengiun.dae">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="3D Models\Penguin\pengiun.dae" />
     <None Include="3D Models\Penguin\pengiun.mtl" />
-    <None Include="3D Models\Penguin\pengiun.obj" />
-    <None Include="3D Models\Touareg\Touareg.3DS">
+    <None Include="3D Models\Penguin\pengiun.obj">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="3D Models\Penguin\Penguin.dae">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="3D Models\Penguin\PenguinBaseMesh.blend" />
+    <None Include="3D Models\Penguin\PenguinBaseMesh.fbx" />
+    <None Include="3D Models\Penguin\PenguinBaseMesh.mtl" />
+    <None Include="3D Models\Penguin\PenguinBaseMesh.obj" />
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -131,9 +133,8 @@
     <None Include="Dependencies\SharpGL.WPF.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="3D Models\Duck\duckCM.bmp" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="3D Models\Penguin\Penguin Diffuse Color.png" />
+    <Resource Include="3D Models\Penguin\Penguin Render.png" />
     <Content Include="AssimpLib\Assimp32.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -143,10 +144,14 @@
     <Content Include="AssimpLib\AssimpNet.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Images\water.jpg" />
+    <Resource Include="Images\water.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\water1.jpg" />
     <Resource Include="Images\ice.jpg" />
-    <Resource Include="Images\snow.jpg" />
+    <Resource Include="Images\snow.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
